@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 type Props = {
   children: ReactNode;
 };
-function UserLayout({ children }: Props) {
+function Layout({ children }: Props) {
   return (
     <div>
       <Navbar></Navbar>
@@ -13,4 +13,4 @@ function UserLayout({ children }: Props) {
   );
 }
 
-export default UserLayout;
+export default Layout;

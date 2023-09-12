@@ -4,10 +4,81 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": " vite",
+    "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:import/typescript"
+    ],
+    "rules": {
+      "react-hooks/exhaustive-deps": "off",
+      "import/order": [
+        "warn",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "sibling",
+            "parent",
+            "index",
+            "object",
+            "type",
+            "unknown"
+          ],
+          "pathGroups": [
+            {
+              "pattern": "{react*,react*/**}",
+              "group": "external",
+              "position": "before"
+            },
+            {
+              "pattern": "shared/**",
+              "group": "internal",
+              "position": "before"
+            },
+            {
+              "pattern": "~/**",
+              "group": "internal",
+              "position": "after"
+            }
+          ],
+          "pathGroupsExcludedImportTypes": [
+            "react"
+          ],
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          },
+          "newlines-between": "never"
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": true
+      }
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "autoprefixer": "10.4.5"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -16,6 +87,7 @@
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.14.7",
     "@mui/material": "^5.14.7",
+    "@vitejs/plugin-react": "^4.0.4",
     "axios": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
