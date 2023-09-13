@@ -1,5 +1,5 @@
 function TripGallery() {
-  return <div>HI!!!</div>;
+  return <div></div>;
 }
 
 export default TripGallery;

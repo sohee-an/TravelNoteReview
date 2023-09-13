@@ -5,6 +5,7 @@ interface RouteProps {
   exact?: boolean;
 }
 const userRoutes: Array<RouteProps> = [
-  { path: '/', exact: true, component: <TripGallery /> },
+  { path: '/', component: <TripGallery /> },
+  { path: '/tripnote', component: <TripGallery /> },
 ];
 export { userRoutes };

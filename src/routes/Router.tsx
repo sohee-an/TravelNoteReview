@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router';
 import { userRoutes } from './allRoutes';
 import Authmiddleware from './middleware/Authmiddleware';
-import Layout from '@components/layout/Layout/Layout';
+import Layout from '../components/layout/Layout';
 
 interface RouteType {
   path: string;
