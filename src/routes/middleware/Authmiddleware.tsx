@@ -1,10 +1,12 @@
-import { Fragment } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Fragment, ReactNode } from 'react';
 
-const Authmiddleware = (props: any) => {
-  if (!localStorage.getItem('token')) {
-    return <Navigate to={{ pathname: '/login' }} />;
-  }
+type Props = {
+  children: ReactNode;
+};
+const Authmiddleware = (props: Props) => {
+  // if (!localStorage.getItem('token')) {
+  //   return <Navigate to={{ pathname: '/login' }} />;
+  // }
   return <Fragment>{props.children}</Fragment>;
 };
 
