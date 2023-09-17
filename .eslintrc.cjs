@@ -1,3 +1,4 @@
+//  패키지 제이슨에 있는거 넣기
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -15,4 +16,4 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-}
+};

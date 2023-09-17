@@ -6,6 +6,6 @@ interface RouteProps {
 }
 const userRoutes: Array<RouteProps> = [
   { path: '/', component: <TripGallery /> },
-  { path: '/tripnote', component: <TripGallery /> },
+  { path: '/user/:uid', component: <TripGallery /> },
 ];
 export { userRoutes };
