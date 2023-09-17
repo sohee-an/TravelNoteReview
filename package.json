@@ -81,12 +81,13 @@
     "autoprefixer": "10.4.5"
   },
   "dependencies": {
+    "@emotion/css": "^11.11.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@mui/icons-material": "^5.14.7",
-    "@mui/material": "^5.14.7",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.9",
     "@sentry/react": "^7.68.0",
     "@vitejs/plugin-react": "^4.0.4",
     "axios": "^1.5.0",

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import * as Sentry from '@sentry/react';
 import Router from './routes';
 
+//  VITE에 맞춰서 넣기
 Sentry.init({
   dsn: 'https://14b6949e6f58c63c09925fd77821c371@o4505861096996864.ingest.sentry.io/4505872551051264',
   integrations: [
