@@ -1,19 +1,18 @@
-import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
-export const container = css`
+export const Container = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
-  background-color: #fff3da;
 `;
 
-export const userProfile = css`
+export const UserProfile = styled.div`
   width: 100%;
   height: 20%;
   display: flex;
 `;
 
-export const profileLeft = css`
+export const ProfileLeft = styled.div`
   width: 35%;
   height: 100%;
   display: flex;
@@ -22,14 +21,14 @@ export const profileLeft = css`
   align-items: center;
   padding: 0.5rem;
 `;
-export const userImg = css`
+export const Img = styled.img`
   height: 80%;
   width: 14rem;
   border: 1px solid gray;
   border-radius: 50%;
   margin: 1rem;
 `;
-export const profilRight = css`
+export const ProfilRight = styled.div`
   width: 80%;
   height: 100%;
   font-size: 10rem;
@@ -38,7 +37,7 @@ export const profilRight = css`
   align-items: center;
   gap: 4rem;
 `;
-export const profilDesc = css`
+export const ProfilDesc = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,15 +46,15 @@ export const profilDesc = css`
   width: 5rem;
   height: 8rem;
 `;
-export const favoriteIcone = css`
+export const FavoriteIcone = styled.div`
   margin-bottom: 1rem;
   margin-top: 0.5rem;
 `;
-export const number = css`
+export const Number = styled.span`
   font-size: 1.5rem;
   color: gray;
 `;
-export const text = css`
+export const Text = styled.span`
   margin-top: 1rem;
   color: gray;
 `;
