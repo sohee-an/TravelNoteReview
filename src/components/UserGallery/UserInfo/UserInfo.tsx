@@ -1,8 +1,7 @@
 import * as User from './styles';
 import { FavoriteBorder } from '@material-ui/icons';
 
-//  2. padding값 신경쓰지 말고 일단 넣기
-function TripGallery() {
+function UserInfo() {
   return (
     <User.Container>
       <User.UserProfile>
@@ -33,4 +32,4 @@ function TripGallery() {
   );
 }
 
-export default TripGallery;
+export default UserInfo;

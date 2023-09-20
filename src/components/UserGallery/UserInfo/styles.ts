@@ -2,18 +2,18 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 25%;
   display: flex;
 `;
 
 export const UserProfile = styled.div`
   width: 100%;
-  height: 20%;
+  height: 100%;
   display: flex;
 `;
 
 export const ProfileLeft = styled.div`
-  width: 35%;
+  width: 30%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -22,14 +22,14 @@ export const ProfileLeft = styled.div`
   padding: 0.5rem;
 `;
 export const Img = styled.img`
-  height: 80%;
-  width: 14rem;
+  height: 12rem;
+  width: 12rem;
   border: 1px solid gray;
   border-radius: 50%;
   margin: 1rem;
 `;
 export const ProfilRight = styled.div`
-  width: 80%;
+  width: 70%;
   height: 100%;
   font-size: 10rem;
   display: flex;

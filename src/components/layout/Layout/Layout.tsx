@@ -8,7 +8,13 @@ type Props = {
 function Layout({ children }: Props) {
   return (
     <Grid container justifyContent="center" alignItems="center">
-      <Grid item xs={12} sm={8} lg={6}>
+      <Grid
+        style={{ width: '100%', height: '100vh' }}
+        item
+        xs={12}
+        sm={8}
+        lg={6}
+      >
         <Navbar />
         {children}
       </Grid>

@@ -1,11 +1,11 @@
-import TripGallery from '../pages/TripGallery/TripGallery';
+import UserGallery from '@/pages/UserGallery/UserGallery';
 interface RouteProps {
   path: string;
   component: React.ReactNode;
   exact?: boolean;
 }
 const userRoutes: Array<RouteProps> = [
-  { path: '/', component: <TripGallery /> },
-  { path: '/user/:uid', component: <TripGallery /> },
+  { path: '/', component: <UserGallery /> },
+  { path: '/user/:uid', component: <UserGallery /> },
 ];
 export { userRoutes };
