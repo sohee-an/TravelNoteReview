@@ -37,15 +37,20 @@ export default function RecipeReviewCard() {
     setExpanded(!expanded);
   };
 
+  const handleClick = () => {
+    alert('hi');
+  };
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 450 }}>
       <CardMedia
+        onClick={handleClick}
         component="img"
         height="194"
         image="https://t1.daumcdn.net/cfile/tistory/99128B3E5AD978AF20"
         alt="Paella dish"
       />
-      <CardContent>
+      <CardContent onClick={handleClick}>
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
