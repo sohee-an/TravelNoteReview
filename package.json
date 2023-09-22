@@ -100,6 +100,7 @@
     "react-swipeable-views": "^0.14.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.198",
     "@types/node": "^20.5.7",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
