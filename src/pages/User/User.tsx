@@ -1,7 +1,7 @@
-import UserInfo from '@components/UserGallery/UserInfo/UserInfo';
-import PhotoBox from '@components/UserGallery/PhotoBox/PhotoBox';
+import UserInfo from '@components/units/user/UserInfo/UserInfo';
+import PhotoBox from '@components/units/user/PhotoBox/PhotoBox';
 import * as Styled from './styles';
-import UserTrip from '@components/UserGallery/UserTrip/UserTrip';
+import UserTrip from '@components/units/user/UserTrip/UserTrip';
 
 function User() {
   return (
