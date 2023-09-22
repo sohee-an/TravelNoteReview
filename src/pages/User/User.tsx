@@ -3,7 +3,7 @@ import PhotoBox from '@components/UserGallery/PhotoBox/PhotoBox';
 import * as Styled from './styles';
 import UserTrip from '@components/UserGallery/UserTrip/UserTrip';
 
-function UserGallery() {
+function User() {
   return (
     <Styled.Container>
       <UserInfo />
@@ -21,4 +21,4 @@ function UserGallery() {
   );
 }
 
-export default UserGallery;
+export default User;

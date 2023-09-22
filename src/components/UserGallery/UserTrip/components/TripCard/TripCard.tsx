@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useNavigate } from 'react-router-dom';
+import * as Styled from './styles';
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -33,24 +35,26 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 export default function RecipeReviewCard() {
   const [expanded, setExpanded] = React.useState(false);
 
+  const navigate = useNavigate();
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   const handleClick = () => {
-    alert('hi');
+    navigate('/trip/1');
   };
 
   return (
     <Card sx={{ maxWidth: 450 }}>
       <CardMedia
+        css={Styled.anchore}
         onClick={handleClick}
         component="img"
         height="194"
         image="https://t1.daumcdn.net/cfile/tistory/99128B3E5AD978AF20"
         alt="Paella dish"
       />
-      <CardContent onClick={handleClick}>
+      <CardContent onClick={handleClick} css={Styled.anchore}>
         <Typography variant="body2" color="text.secondary">
           This impressive paella is a perfect party dish and a fun meal to cook
           together with your guests. Add 1 cup of frozen peas along with the
