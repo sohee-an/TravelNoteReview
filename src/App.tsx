@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { BrowserRouter } from 'react-router-dom';
 import * as Sentry from '@sentry/react';
 import Router from './routes';
 
