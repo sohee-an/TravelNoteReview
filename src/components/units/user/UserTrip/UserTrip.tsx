@@ -1,10 +1,12 @@
-import * as React from 'react';
+import { useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import * as Styled from './styles';
 import TripCard from './components/TripCard/TripCard';
+import { Button } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -40,15 +42,19 @@ function a11yProps(index: number) {
 }
 
 export default function UserTrip() {
-  const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+  const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+  const handleClick = () => {
+    navigate('/trip/plan');
+  };
 
   return (
     <Styled.Container>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'divider', display: 'flex' }}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -56,8 +62,8 @@ export default function UserTrip() {
         >
           <Tab label="최근 여행" {...a11yProps(0)} />
           <Tab label="추천 여행" {...a11yProps(1)} />
-          <Tab label="여행 짜기" {...a11yProps(2)} />
         </Tabs>
+        <Button onClick={handleClick}>여행짜기</Button>
       </Box>
       <CustomTabPanel value={value} index={0}>
         <Styled.CardContainer>
@@ -71,7 +77,6 @@ export default function UserTrip() {
           <TripCard />
         </Styled.CardContainer>
       </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}></CustomTabPanel>
     </Styled.Container>
   );
 }
