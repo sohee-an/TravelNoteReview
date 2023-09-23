@@ -21,3 +21,9 @@ export const TopWrapper = styled.div`
   background-color: whitesmoke;
   margin-bottom: 1rem;
 `;
+
+export const TripsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

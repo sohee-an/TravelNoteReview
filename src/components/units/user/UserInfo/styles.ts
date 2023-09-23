@@ -21,12 +21,21 @@ export const ProfileLeft = styled.div`
   align-items: center;
   padding: 0.5rem;
 `;
-export const Img = styled.img`
-  height: 12rem;
-  width: 12rem;
-  border: 1px solid gray;
-  border-radius: 50%;
-  margin: 1rem;
+export const ImgContainer = styled.div`
+  height: 85%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & img {
+    border: 1px solid gray;
+    border-radius: 50%;
+    margin: 1rem;
+    object-fit: cover;
+    width: 10rem;
+    height: 10rem;
+  }
 `;
 export const ProfilRight = styled.div`
   width: 70%;

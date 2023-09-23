@@ -1,5 +1,7 @@
+import DragDropTimeLine from './component/DragDropTimeLine/DragDropTimeLine';
 import TripAdd from './component/TripAdd/TripAdd';
 import TripState from './component/TripState/TripState';
+
 import * as Styled from './styles';
 
 function TripPlan() {
@@ -10,7 +12,10 @@ function TripPlan() {
         <TripState />
       </Styled.StateWrapper>
       <Styled.TopWrapper>대기열</Styled.TopWrapper>
-      <TripAdd onClick={handleClick} />
+      <Styled.TripsWrapper>
+        <DragDropTimeLine />
+        <TripAdd onClick={handleClick} />
+      </Styled.TripsWrapper>
     </Styled.Container>
   );
 }

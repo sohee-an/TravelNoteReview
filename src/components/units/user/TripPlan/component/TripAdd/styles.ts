@@ -8,4 +8,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  :hover {
+    border: 2px solid blue;
+    transform: scale(1.05);
+  }
 `;
