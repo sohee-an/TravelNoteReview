@@ -12,16 +12,8 @@ import FastfoodIcon from '@mui/icons-material/Fastfood';
 import Typography from '@mui/material/Typography';
 import { dummyData } from './dummyData';
 import { useNavigate, useParams } from 'react-router-dom';
-type Props = {
-  timelinePosition?:
-    | 'left'
-    | 'right'
-    | 'alternate'
-    | 'alternate-reverse'
-    | undefined;
-};
 
-export default function TimelineTrip({ timelinePosition }: Props) {
+export default function TimelineTrip() {
   const navigate = useNavigate();
   const { tid } = useParams();
 
@@ -30,7 +22,7 @@ export default function TimelineTrip({ timelinePosition }: Props) {
   };
 
   return (
-    <Timeline position={timelinePosition ? timelinePosition : 'alternate'}>
+    <Timeline position="alternate">
       {dummyData.map((item) => {
         return (
           <TimelineItem key={item.id}>

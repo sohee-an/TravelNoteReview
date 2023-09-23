@@ -6,8 +6,9 @@ function UserInfo() {
     <User.Container>
       <User.UserProfile>
         <User.ProfileLeft>
-          <User.Img src="https://i.namu.wiki/i/IUKpnzynPCMlkcs4qRLos3NAnwQu48KLCi7eUXFK0RDyRO1o4rgquRpH2iEJh6G4CGkiGglBWuDp04zsc4Cwww.webp"></User.Img>
-
+          <User.ImgContainer>
+            <img src="https://i.namu.wiki/i/IUKpnzynPCMlkcs4qRLos3NAnwQu48KLCi7eUXFK0RDyRO1o4rgquRpH2iEJh6G4CGkiGglBWuDp04zsc4Cwww.webp" />
+          </User.ImgContainer>
           <div>홍길동</div>
         </User.ProfileLeft>
         <User.ProfilRight>
