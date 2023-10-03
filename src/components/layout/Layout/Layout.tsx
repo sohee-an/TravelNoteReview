@@ -9,7 +9,7 @@ function Layout({ children }: Props) {
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Grid
-        style={{ width: '100%', height: '100vh' }}
+        style={{ width: '760px', flex: '0 0 760px', height: '100vh' }}
         item
         xs={12}
         sm={8}
