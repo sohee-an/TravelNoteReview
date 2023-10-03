@@ -41,7 +41,7 @@ export default function RecipeReviewCard() {
 
   return (
     <Link to={`/trip/1`}>
-      <Card sx={{ maxWidth: 450 }}>
+      <Card sx={{ maxWidth: 320 }}>
         <CardMedia
           css={Styled.anchore}
           component="img"

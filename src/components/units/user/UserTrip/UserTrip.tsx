@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import * as Styled from './styles';
 import TripCard from './components/TripCard/TripCard';
 import { Button } from '@material-ui/core';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -42,14 +42,10 @@ function a11yProps(index: number) {
 }
 
 export default function UserTrip() {
-  const navigate = useNavigate();
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
-  };
-  const handleClick = () => {
-    navigate('/trip/plan');
   };
 
   return (
@@ -63,16 +59,22 @@ export default function UserTrip() {
           <Tab label="최근 여행" {...a11yProps(0)} />
           <Tab label="추천 여행" {...a11yProps(1)} />
         </Tabs>
-        <Button onClick={handleClick}>여행짜기</Button>
+        <Link to="/trip/plan" style={{ display: 'flex' }}>
+          <Button>여행짜기</Button>
+        </Link>
       </Box>
       <CustomTabPanel value={value} index={0}>
         <Styled.CardContainer>
+          <TripCard />
+          <TripCard />
           <TripCard />
           <TripCard />
         </Styled.CardContainer>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Styled.CardContainer>
+          <TripCard />
+          <TripCard />
           <TripCard />
           <TripCard />
         </Styled.CardContainer>

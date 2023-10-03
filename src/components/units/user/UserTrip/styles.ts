@@ -10,6 +10,9 @@ export const Container = styled(Box)`
 `;
 export const CardContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 1 1 20%;
   gap: 2rem;
 `;
