@@ -3,7 +3,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 // import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
@@ -14,6 +14,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import * as Styled from './styles';
 import { House, Photo, Search } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 
 const theme = createTheme({
   palette: {
@@ -168,14 +169,9 @@ export default function PrimarySearchAppBar() {
       <Box sx={{ flexGrow: 1 }}>
         <Styled.AppBarStyle position="static">
           <Toolbar>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ display: { xs: 'none', sm: 'block' } }}
-            >
-              TravelNote
-            </Typography>
+            <Link to="/">
+              <Styled.Logo src="/logo.png" />
+            </Link>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ flexGrow: 1 }}>
               <IconButton
