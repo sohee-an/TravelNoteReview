@@ -30,7 +30,7 @@ function TripDetail() {
         </Button>
         <Button variant="contained">다음 여행 </Button>
       </Styled.ButtonGroup>
-      <TimelineTrip timelinePosition="left" />
+      <TimelineTrip />
       {locationState && <MapComponent />}
       <Typography component="span">여행을 상세내용들</Typography>
     </Styled.Container>
