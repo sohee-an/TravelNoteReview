@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 
 import str from '@/utils/str';
-import { TextField } from '@material-ui/core';
+import TextField from '@mui/material/TextField';
 
 type Props = {
   type?: 'text' | 'password' | 'number' | 'email' | 'search';
@@ -13,6 +13,7 @@ type Props = {
   [key: string]: any;
   label?: string;
   variant?: 'standard' | 'filled' | 'outlined' | undefined;
+  width?: string;
 };
 
 function Input({
@@ -22,6 +23,7 @@ function Input({
   maxLength = -1,
   invalid,
   onChange,
+  width = '',
   ...args
 }: Props) {
   const [text, setText] = useState<string>(value);
@@ -46,6 +48,7 @@ function Input({
   return (
     <Fragment>
       <TextField
+        style={{ width: width }}
         type={type}
         name={name}
         value={text}
