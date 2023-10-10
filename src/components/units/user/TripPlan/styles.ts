@@ -17,13 +17,14 @@ export const TopWrapper = styled.div`
   width: 100%;
   height: 13%;
   padding: 1rem;
-
   background-color: whitesmoke;
   margin-bottom: 1rem;
-`;
-
-export const TripsWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const TripsWrapper = styled.div`
+  width: 100%;
+  height: 87%;
 `;
