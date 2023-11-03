@@ -1,7 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
-
-import str from '@/utils/str';
 import TextField from '@mui/material/TextField';
+import str from '@/utils/str';
 
 type Props = {
   type?: 'text' | 'password' | 'number' | 'email' | 'search';
