@@ -1,6 +1,6 @@
-import Navbar from './Navbar';
 import { ReactNode } from 'react';
 import { Grid } from '@mui/material';
+import Navbar from './Navbar';
 
 type Props = {
   children: ReactNode;
