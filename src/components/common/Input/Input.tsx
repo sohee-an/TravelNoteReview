@@ -1,14 +1,12 @@
 import { Fragment, useEffect, useState } from 'react';
-
-import str from '@/utils/str';
 import TextField from '@mui/material/TextField';
+import str from '@/utils/str';
 
 type Props = {
   type?: 'text' | 'password' | 'number' | 'email' | 'search';
   name?: string;
   value?: string;
   maxLength?: number;
-  invalid?: boolean;
   onChange?: (e: object) => void;
   [key: string]: any;
   label?: string;
@@ -21,7 +19,6 @@ function Input({
   name = str.random(),
   value = '',
   maxLength = -1,
-  invalid,
   onChange,
   width = '',
   ...args
@@ -52,7 +49,6 @@ function Input({
         type={type}
         name={name}
         value={text}
-        error={invalid}
         {...(maxLength > -1 ? { maxLength } : {})}
         onChange={({ target }: any) =>
           handleTextChange(target.value.toString())

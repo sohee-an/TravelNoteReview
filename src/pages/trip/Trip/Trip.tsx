@@ -1,9 +1,9 @@
-import TripCarousel from '@components/units/trip/TripCarousel/TripCarousel';
-import * as Styled from './styles';
-import { Button } from '@material-ui/core';
-import ShareIcon from '@mui/icons-material/Share';
-import { FavoriteBorder } from '@material-ui/icons';
 import MapComponent from '@components/units/trip/Map/MapComponent';
+import TripCarousel from '@components/units/trip/TripCarousel/TripCarousel';
+import { Button } from '@material-ui/core';
+import { FavoriteBorder } from '@material-ui/icons';
+import ShareIcon from '@mui/icons-material/Share';
+import * as Styled from './styles';
 
 function Trip() {
   return (

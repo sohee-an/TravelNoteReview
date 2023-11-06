@@ -1,4 +1,3 @@
-//  패키지 제이슨에 있는거 넣기
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -9,13 +8,52 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'import'],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
-
-    '@typescript-eslint/no-explicit-any': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'import/order': [
+      'warn',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'sibling',
+          'parent',
+          'index',
+          'object',
+          'type',
+          'unknown',
+        ],
+        pathGroups: [
+          {
+            pattern: '{react*,react*/**}',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: 'shared/**',
+            group: 'internal',
+            position: 'before',
+          },
+          {
+            pattern: '~/**',
+            group: 'internal',
+            position: 'after',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['react'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
   },
 };
