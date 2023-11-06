@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { DropResult } from 'react-beautiful-dnd';
 import { Button, Card, CardContent } from '@material-ui/core';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import { DropResult } from 'react-beautiful-dnd';
 
 import * as Styled from './styles';
 interface CardItem {

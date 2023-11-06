@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router';
+import NonLayout from '@components/layout/NonLayout/NonLayout';
 import { userRoutes, authRoutes } from './allRoutes';
 import Authmiddleware from './middleware/Authmiddleware';
 import Layout from '../components/layout/Layout';
-import NonLayout from '@components/layout/NonLayout/NonLayout';
+
 interface RouteType {
   path: string;
   component: React.ReactNode;

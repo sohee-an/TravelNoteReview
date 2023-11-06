@@ -1,5 +1,5 @@
-import * as User from './styles';
 import { FavoriteBorder } from '@material-ui/icons';
+import * as User from './styles';
 
 function UserInfo() {
   return (
