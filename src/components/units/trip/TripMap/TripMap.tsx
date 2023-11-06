@@ -1,8 +1,7 @@
-import { useState, memo, useCallback } from 'react';
+import { useState, memo, useCallback, useEffect } from 'react';
 import { Button } from '@material-ui/core';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import * as Styled from './styles';
-import TimeLineTrip from './TimeLineTrip/TimeLineTrip';
 
 const apiKey = 'AIzaSyCgG6a_ltkZe9Xn8_ReJ0anUN67MUQPX08';
 const mapStyle: React.CSSProperties = {
@@ -26,12 +25,18 @@ const locations: Location[] = [
   },
 ];
 
-function MapComponent() {
+type Props = {
+  location: any;
+};
+
+function TripMap({ location }: Props) {
+  const [locationState, setLocationState] = useState({ lat: 0, lng: 0 });
+  const [markerPosition, setMarkerPosition] = useState(null);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: apiKey,
+    libraries: ['places'],
   });
-  const [timeLineState, setTimeLineState] = useState(false);
 
   const [map, setMap] = useState<google.maps.Map | null>(null);
 
@@ -48,43 +53,36 @@ function MapComponent() {
     setMap(null);
   }, []);
 
-  const handleClick = () => {
-    setTimeLineState((pre) => !pre);
-  };
+  // useEffect(() => {
+  //   // Geocode the address when the component loads
+  //   if (props.address) {
+  //     const geocoder = new window.google.maps.Geocoder();
+  //     geocoder.geocode({ address: props.address }, (results, status) => {
+  //       if (status === 'OK' && results[0].geometry.location) {
+  //         setLocation(results[0].geometry.location);
+  //       }
+  //     });
+  //   }
+  // }, [props.address]);
 
   return isLoaded ? (
     <Styled.Container>
-      <Styled.TopWrapper>
-        <Button variant="outlined" onClick={handleClick}>
-          타임라인{' '}
-          {timeLineState ? (
-            <div style={{ color: '#FFA500' }}>ON</div>
-          ) : (
-            <div style={{ color: 'gray' }}>OFF</div>
-          )}
-        </Button>
-      </Styled.TopWrapper>
-      <Styled.BottomWrapper>
-        {timeLineState ? (
-          <TimeLineTrip />
-        ) : (
-          <GoogleMap
-            mapContainerStyle={mapStyle}
-            zoom={12}
-            center={{ lat: 36.5, lng: 127.5 }}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-          >
-            {locations.map((item) => {
-              return <Marker key={item.name} position={item.location} />;
-            })}
-          </GoogleMap>
-        )}
-      </Styled.BottomWrapper>
+      <GoogleMap
+        mapContainerStyle={mapStyle}
+        zoom={12}
+        center={location || { lat: 36.5, lng: 127.5 }}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        {/* {locations.map((item) => {
+          return <Marker key={item.name} position={item.location} />;
+        })} */}
+        {location && <Marker position={location} />}
+      </GoogleMap>
     </Styled.Container>
   ) : (
     <div>Loading Google Maps...</div>
   );
 }
 
-export default memo(MapComponent);
+export default memo(TripMap);

@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 export const Coniainer = styled.div`
   display: flex;
+  padding: 2rem;
   justify-content: center;
   align-items: center;
-  height: 100%;
 `;
 
 export const CardHeader = styled.h2`
@@ -36,10 +36,17 @@ export const Day = styled.div`
   border-radius: 3px;
   color: blue;
 `;
+
 export const CardTopWrapper = styled.div`
   color: gray;
 
   & div {
     margin-bottom: 1rem;
   }
+`;
+
+export const AddressAutoInputWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 `;

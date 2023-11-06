@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import Input from '@components/common/Input/Input';
+import AddressAutoCompleteInput from '@components/units/trip/AddressAutoCompleteInput/AddressAutoCompleteInput';
+
+import TripMap from '@components/units/trip/TripMap/TripMap';
 import { Button, CardContent } from '@material-ui/core';
 import Card from '@mui/material/Card';
 import * as Styled from './styled';
@@ -8,10 +12,20 @@ import * as Styled from './styled';
 function CreateDetailTrip() {
   const navigate = useNavigate();
   const [dayCount, setDayCount] = useState(2);
+  const [address, setAddress] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [mapStates, setMapStates] = useState(Array(dayCount).fill(false));
 
   const handleClick = () => {
     navigate('/createDetailTrip/1s');
   };
+
+  const handleClickMap = (index: number) => {
+    setMapStates((prevStates) =>
+      prevStates.map((state, i) => (i === index ? !state : state))
+    );
+  };
+
   return (
     <Styled.Coniainer>
       <Card style={{ width: '70%', height: 'auto' }}>
@@ -37,13 +51,28 @@ function CreateDetailTrip() {
                   required
                   id="packageTitle"
                 />
-                <Input
-                  variant="outlined"
-                  label="여행장소"
-                  width="26rem"
-                  required
-                  id="packageTitle"
-                />
+                <Styled.AddressAutoInputWrapper>
+                  <div style={{ flex: 1 }}>
+                    <AddressAutoCompleteInput
+                      address={address}
+                      setAddress={setAddress}
+                      onSelect={(location: any) =>
+                        setSelectedLocation(location)
+                      }
+                    />
+                  </div>
+
+                  <div>
+                    <Button
+                      variant="outlined"
+                      style={{ height: '100%' }}
+                      onClick={() => handleClickMap(index)}
+                    >
+                      지도
+                    </Button>
+                  </div>
+                </Styled.AddressAutoInputWrapper>
+                {mapStates[index] && <TripMap location={selectedLocation} />}
               </Styled.TripWrapper>
             ))}
           </Styled.PackageWrapper>
