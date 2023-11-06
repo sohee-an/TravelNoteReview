@@ -2,11 +2,11 @@ import axios, { AxiosInstance } from 'axios';
 
 import config from './config';
 
-const instance: AxiosInstance = axios.create({
+const api: AxiosInstance = axios.create({
   baseURL: config.host,
 });
 
-instance.interceptors.request.use(
+api.interceptors.request.use(
   (config) => {
     /**
      * HTTP Authorization 요청 헤더에 jwt-token을 넣음
@@ -33,7 +33,7 @@ instance.interceptors.request.use(
   }
 );
 
-instance.interceptors.response.use(
+api.interceptors.response.use(
   (response) => {
     /**
      * http status가 200인 경우 응답 성공 직전 호출
@@ -57,4 +57,4 @@ instance.interceptors.response.use(
   }
 );
 
-export default instance;
+export default api;

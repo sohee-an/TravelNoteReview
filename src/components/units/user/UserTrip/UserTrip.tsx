@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import * as Styled from './styles';
-import TripCard from './components/TripCard/TripCard';
-import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
+import Typography from '@mui/material/Typography';
+import TripCard from './components/TripCard/TripCard';
+import * as Styled from './styles';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -59,8 +59,17 @@ export default function UserTrip() {
           <Tab label="최근 여행" {...a11yProps(0)} />
           <Tab label="추천 여행" {...a11yProps(1)} />
         </Tabs>
-        <Link to="/trip/plan" style={{ display: 'flex' }}>
+        <Link
+          to="/trip/plan"
+          style={{ display: 'flex', textDecoration: 'none', color: 'inherit' }}
+        >
           <Button>여행짜기</Button>
+        </Link>
+        <Link
+          to="/createTrip"
+          style={{ display: 'flex', textDecoration: 'none', color: 'inherit' }}
+        >
+          <Button>여행등록</Button>
         </Link>
       </Box>
       <CustomTabPanel value={value} index={0}>

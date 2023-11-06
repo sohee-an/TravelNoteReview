@@ -7,7 +7,6 @@ type Props = {
   name?: string;
   value?: string;
   maxLength?: number;
-  invalid?: boolean;
   onChange?: (e: object) => void;
   [key: string]: any;
   label?: string;
@@ -20,7 +19,6 @@ function Input({
   name = str.random(),
   value = '',
   maxLength = -1,
-  invalid,
   onChange,
   width = '',
   ...args
@@ -51,7 +49,6 @@ function Input({
         type={type}
         name={name}
         value={text}
-        error={invalid}
         {...(maxLength > -1 ? { maxLength } : {})}
         onChange={({ target }: any) =>
           handleTextChange(target.value.toString())
