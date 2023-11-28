@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
 import FormControl from '@mui/material/FormControl';
@@ -11,6 +11,9 @@ import { Theme, useTheme } from '@mui/material/styles';
 type Props = {
   label: string;
   items: any[];
+  value: any;
+  multiple?: boolean;
+  onChange: any;
   [key: string]: any;
 };
 
@@ -34,20 +37,46 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
   };
 }
 
-export default function ShareSelect({ label, items, ...args }: Props) {
+export default function ShareSelect({
+  label,
+  items,
+  multiple,
+  onChange,
+  value,
+  ...args
+}: Props) {
   const theme = useTheme();
-  const [personName, setPersonName] = React.useState<string[]>([]);
+  const [personName, setPersonName] = useState<string[]>([]);
 
+  // const handleChange = (event: SelectChangeEvent<typeof personName>) => {
+  //   const {
+  //     target: { value },
+  //   } = event;
+
+  //   setPersonName(
+  //     // On autofill we get a stringified value.
+  //     typeof value === 'string' ? value.split(',') : value
+  //   );
+  // };
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
       target: { value },
     } = event;
 
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === 'string' ? value.split(',') : value
-    );
+    if (onChange) {
+      const selectedItems = value as string[];
+      onChange({ name: 'tripArea', value: selectedItems });
+    }
+
+    setPersonName(typeof value === 'string' ? value.split(',') : value);
   };
+
+  /**
+   * useEffect
+   */
+  useEffect(() => {
+    setPersonName(value);
+  }, [value]);
 
   return (
     <div>
@@ -57,7 +86,7 @@ export default function ShareSelect({ label, items, ...args }: Props) {
           {...args}
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
-          multiple
+          {...(multiple ? { multiple: true } : {})}
           value={personName}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Chip" />}

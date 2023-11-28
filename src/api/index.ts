@@ -1,12 +1,11 @@
-import axios, { AxiosInstance } from 'axios';
-
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import config from './config';
 
-const api: AxiosInstance = axios.create({
+const instance: AxiosInstance = axios.create({
   baseURL: config.host,
 });
 
-api.interceptors.request.use(
+instance.interceptors.request.use(
   (config) => {
     /**
      * HTTP Authorization 요청 헤더에 jwt-token을 넣음
@@ -33,7 +32,7 @@ api.interceptors.request.use(
   }
 );
 
-api.interceptors.response.use(
+instance.interceptors.response.use(
   (response) => {
     /**
      * http status가 200인 경우 응답 성공 직전 호출
@@ -57,4 +56,15 @@ api.interceptors.response.use(
   }
 );
 
-export default api;
+async function api(request: AxiosRequestConfig) {
+  const url = request.url;
+  const params: any = {
+    ...request,
+    url,
+  };
+
+  const res = await instance({ ...params });
+  return res.data;
+}
+
+export default instance;

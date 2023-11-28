@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import ShareSelect from '@components/common/ShareSelect/ShareSelect';
 import TripPackage from '@components/units/createTrip/TripPackage/TripPackage';
 import { Button, CardContent } from '@material-ui/core';
@@ -16,11 +17,21 @@ import Switch from '@mui/material/Switch';
 import * as Styled from './styled';
 
 import Input from '@/components/common/Input/Input';
+import { getCreateTripSchema } from '@/validatrions/trip/createTripValidation';
 
 function CreateTrip() {
   const [selectedValues, setSelectedValues] = useState([]);
   const [days, setDays] = useState([{ id: 1, inputFields: Array(3).fill('') }]);
   const [dayCount, setDayCount] = useState(1);
+
+  // const {
+  //   register,
+  //   setValue,
+  //   getValues,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({ resolver: getCreateTripSchema() });
+
   const handleChange = (event: any) => {
     setSelectedValues(event.target.value);
   };
@@ -39,6 +50,7 @@ function CreateTrip() {
       <Card style={{ width: '70%', height: 'auto' }}>
         <CardContent>
           <Styled.CardHeader>나의 여행패키지 등록</Styled.CardHeader>
+
           <TripPackage />
 
           {/* {Array.from({ length: dayCount }).map((_, index) => (

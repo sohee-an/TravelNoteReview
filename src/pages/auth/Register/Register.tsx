@@ -3,7 +3,9 @@ import { useForm } from 'react-hook-form';
 import Input from '@components/common/Input/Input';
 import { Button } from '@material-ui/core';
 import CardHeader from '@mui/material/CardHeader/CardHeader';
+import { useMutation } from '@tanstack/react-query';
 import * as Styled from './styles';
+import { AuthApi } from '@/api/auth/auth';
 import { getRegusterFormSchema } from '@/validatrions/authentication/registerFormValidation';
 
 const Register = () => {
@@ -13,19 +15,21 @@ const Register = () => {
     formState: { errors },
   } = useForm({ resolver: getRegusterFormSchema() });
 
+  const { mutate } = useMutation({ mutationFn: AuthApi.registerApi });
+
   const handleChange = ({ name, value }: any) => {
     setValue(name, value, { shouldValidate: true });
   };
 
   const handleClick = (values: any) => {
     if (values) {
-      console.log('value', values);
       const { email, nickname, password } = values;
       const newUser = {
         email,
         nickname,
         password,
       };
+      mutate({ newUser });
     }
   };
 

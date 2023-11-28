@@ -2,7 +2,9 @@ import { memo } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@material-ui/core';
 import CardHeader from '@mui/material/CardHeader/CardHeader';
+import { useMutation } from '@tanstack/react-query';
 import * as Styled from './styles';
+import { AuthApi } from '@/api/auth/auth';
 import Input from '@/components/common/Input/Input';
 import { getLoginFormSchema } from '@/validatrions/authentication/loginFormValidation';
 
@@ -13,19 +15,23 @@ const Login = () => {
     formState: { errors },
   } = useForm({ resolver: getLoginFormSchema() });
 
+  const { mutate } = useMutation({ mutationFn: AuthApi.loginApi });
+
   const handleChange = ({ name, value }: any) => {
     setValue(name, value, { shouldValidate: true });
   };
 
   const handleClick = (values: any) => {
     if (values) {
-      console.log('value', values);
       const { email, nickname, password } = values;
       const newUser = {
         email,
         nickname,
         password,
       };
+      mutate({
+        newUser,
+      });
     }
   };
 
@@ -47,6 +53,7 @@ const Login = () => {
             helperText={errors?.email ? errors?.email.message : ''}
             onChange={handleChange}
           />
+
           <Input
             variant="outlined"
             label="비밀번호"
